@@ -75,7 +75,7 @@ function [buffer] = pblib_write_varint(value)
   while (value > 127)
     num_bytes = num_bytes + 1;
     buffer(num_bytes) = bitset(bitand(value, 127), 8);
-    value = bitshift(value, -7);
+    value = value * (2 ** -7);
   end
   num_bytes = num_bytes + 1;
   buffer(num_bytes) = value;
