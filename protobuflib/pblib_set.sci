@@ -60,13 +60,13 @@ function [msg] = pblib_set(msg, field_name, value)
   if length(value) > 1 then
     for i = 1:size(value,1)
       for j = 1:size(value,2)
-        execstr(exec_string + sprintf("(%d,%d)",i,j) + " = " + string(value(i,j)))
+        execstr(exec_string + sprintf("(%d,%d)",i,j) + " = " + string(value(i,j)));
       end
     end
 
   else
-    exec_string = 'msg.'+sprintf("%s",field_name) + ' = ' + string(k)
-    execstr(exec_string)
+    exec_string = 'msg.'+sprintf("%s",field_name) + ' = ' + string(k);
+    execstr(exec_string);
   end
 
   put(msg.has_field, field_name, 1);
